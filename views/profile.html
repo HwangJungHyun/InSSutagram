@@ -2,6 +2,9 @@
 
 {% block content %}
   <div class="timeline">
+    <h2>{{'안녕하세요! ' + user.nick + '님'}}</h2>
+    <div id="date">
+    </div>
     <div class="followings half">
       <h2>팔로잉 목록</h2>
       {% if user.Followings %}
@@ -19,4 +22,13 @@
       {% endif %}
     </div>
   </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+    const date = document.getElementById('date')
+    date.innerHTML = Date().toString();
+
+    console.log(datestr);
+  </script>
 {% endblock %}
