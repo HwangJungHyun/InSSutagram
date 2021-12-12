@@ -11,10 +11,11 @@ router.use((req, res, next) => {
   next();
 });
 
+// 로그인한 상태
 router.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { title: '내 정보 - NodeBird' });
 });
-
+// 로그아웃한 상태
 router.get('/join', isNotLoggedIn, (req, res) => {
   res.render('join', { title: '회원가입 - NodeBird' });
 });

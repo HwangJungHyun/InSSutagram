@@ -1,3 +1,5 @@
+// 관련 접근 권한을 관리하는 미들웨어
+
 exports.isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
       next();
