@@ -11,6 +11,7 @@ dotenv.config();
 const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
 
+const accountRouter = require('./routes/account');
 const profileRouter = require('./routes/profile');
 const postRouter = require('./routes/post');
 
@@ -53,6 +54,7 @@ app.use(passport.session());
 
 app.use('/', pageRouter);
 app.use('/auth', authRouter);
+app.use('/account', accountRouter);
 app.use('/profile', profileRouter);
 app.use('/post', postRouter);
 

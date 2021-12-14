@@ -2,12 +2,15 @@
 
 {% block content %}
   <div class="timeline">
-    <form id="join-form" action="/auth/join" method="post">
+    <form id="join-form" action="/auth/account" method="post">
       <div class="input-group">
         <label for="join-email">이메일</label>
         <input id="join-email" type="email" name="email"></div>
       <div class="input-group">
-        <label for="join-nick">닉네임</label>
+        <label for="join-name">성명</label>
+        <input id="join-name" type="text" name="name"></div>
+      <div class="input-group">
+        <label for="join-nick">사용자 이름</label>
         <input id="join-nick" type="text" name="nick"></div>
       <div class="input-group">
         <label for="join-password">비밀번호</label>
@@ -22,7 +25,7 @@
   <script>
     window.onload = () => {
       if (new URL(location.href).searchParams.get('error')) {
-        alert('이미 존재하는 이메일입니다.');
+        alert('이미 존재하는 이메일 또는 사용자 이름입니다.');
       }
     };
   </script>

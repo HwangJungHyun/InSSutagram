@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="timeline">
       {% if user %}
         <div>
           <form id="twit-form" action="/post" method="post" enctype="multipart/form-data">
@@ -20,11 +19,6 @@
           </form>
         </div>
       {% endif %}
-      <div class="twits">
-        <form id="hashtag-form" action="/hashtag">
-          <input type="text" name="hashtag" placeholder="태그 검색">
-          <button class="btn">검색</button>
-        </form>
         {% for twit in twits %}
           <div class="twit">
             <input type="hidden" value="{{twit.User.id}}" class="twit-user-id">
@@ -40,7 +34,6 @@
           </div>
         {% endfor %}
       </div>
-    </div>
 {% endblock %}
 
 {% block script %}

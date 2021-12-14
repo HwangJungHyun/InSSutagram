@@ -16,13 +16,13 @@ router.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { title: '내 정보 - NodeBird' });
 });
 // 로그아웃한 상태
-router.get('/join', isNotLoggedIn, (req, res) => {
-  res.render('join', { title: '회원가입 - NodeBird' });
+router.get('/account', isNotLoggedIn, (req, res) => {
+  res.render('account', { title: '회원가입 - NodeBird' });
 });
 
 router.get('/', (req, res, next) => {
   const twits = [];
-  res.render('main', {
+  res.render('home', {
     title: 'NodeBird',
     twits,
   });
