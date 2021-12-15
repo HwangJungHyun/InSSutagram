@@ -15,6 +15,7 @@ router.use((req, res, next) => {
 router.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { title: '내 정보 - NodeBird' });
 });
+
 // 로그아웃한 상태
 router.get('/account', isNotLoggedIn, (req, res) => {
   res.render('account', { title: '회원가입 - NodeBird' });
@@ -22,8 +23,8 @@ router.get('/account', isNotLoggedIn, (req, res) => {
 
 router.get('/', (req, res, next) => {
   const twits = [];
-  res.render('home', {
-    title: 'NodeBird',
+  res.render('layout', {
+    title: 'InSSUtagram',
     twits,
   });
 });

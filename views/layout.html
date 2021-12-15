@@ -13,8 +13,8 @@
         <div class="profile">
           {% if user and user.id %}
           <div>
-            <a href='/' class="btn">Home</a>
-            <a href='/' class="btn">New</a>
+            <a href='/home' class="btn">Home</a>
+            <a href='/new' class="btn">New</a>
             <a href='/' class="btn">Follow</a>
             <a href='/' class="btn">Message</a>
           </div>
@@ -32,8 +32,7 @@
           <a id="logout" href="/auth/logout" class="btn">Logout</a>
         {% else %}
           <div>
-            <img src="/src/logo.PNG">
-            <img src="/src/home_logo.jpg">
+            <img src="logo.jpg">
           </div>
           <h1>
             친구들과 사진을 공유해보세요!

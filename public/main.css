@@ -39,6 +39,7 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   .profile-wrap { width: 290px; margin-bottom: 0; }
 }
 .profile {
+  display: block;
   text-align: left;
   padding: 10px;
   margin-right: 10px;
@@ -82,13 +83,21 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   background: crimson;
   border: none;
 }
+.twit-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
 .twit {
+  display: inline-block;
   border: 1px solid silver;
   border-radius: 4px;
   padding: 10px;
   position: relative;
   margin-bottom: 10px;
 }
+
 .twit-author { display: inline-block; font-weight: bold; margin-right: 10px; }
 .twit-follow {
   padding: 1px 5px;

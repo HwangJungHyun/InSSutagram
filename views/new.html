@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% if user %}
+<div>
+    <form id="twit-form" action="/post" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <textarea id="twit" name="content" maxlength="140"></textarea>
+        </div>
+        <div class="img-preview">
+            <img id="img-preview" src="" style="display: none;" width="250" alt="미리보기">
+            <input id="img-url" type="hidden" name="url">
+        </div>
+        <div>
+            <label id="img-label" for="img">사진 업로드</label>
+            <input id="img" type="file" accept="image/*" multiple>
+            <button id="twit-btn" type="submit" class="btn">게시글 작성</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block script %}
+<script>
+if (document.getElementById("img")) {
+    let uploadNum = 0; //올린 사진 셀 변수 
+    let index = 0; //img 에 붙일 index 
+    document.getElementById("img").addEventListener("change", function (e) {
+      const formData = new FormData(); //서버로 보낼 이미지 form 
+      const length = this.files.length;
+      const max = 5; //사진 최대 5장
+      switch (uploadNum) {
+        case 0:
+          if (length > max - uploadNum) {
+            alert("사진은 최대 5장까지만 가능합니다.");
+            return;
+          }
+          uploadNum += length;
+          break;
+        case 1:
+          if (length > max - uploadNum) {
+            alert("사진은 최대 5장까지만 가능합니다.");
+            return;
+          }
+          uploadNum += length;
+          break;
+        case 2:
+          if (length > max - uploadNum) {
+            alert("사진은 최대 5장까지만 가능합니다.");
+            return;
+          }
+          uploadNum += length;
+          break;
+        case 3:
+          if (length > max - uploadNum) {
+            alert("사진은 최대 5장까지만 가능합니다.");
+            return;
+          }
+          uploadNum += length;
+          break;
+        case 4:
+          if (length > max - uploadNum) {
+            alert("사진은 최대 5장까지만 가능합니다.");
+            return;
+          }
+          uploadNum += length;
+          break;
+        default:
+          alert("사진은 최대 5장까지만 가능합니다.");
+          return;
+      } 
+      console.log("업로드한 사진 : ", uploadNum);
+      console.log("현재 올린 사진 : ", this.files);
+      for (let i = 0; i < length; i++) {
+        formData.append("img", this.files[i]);
+      }
+      console.log(formData);
+      axios.post('/post/img', formData)
+        .then((res) => {
+          let url = JSON.parse(res.data);
+          //console.log("url=======" + url);
+          //console.log("url=======" + res.data.url);
+        });
+    });
+  }
+</script>
+{% endblock %}
