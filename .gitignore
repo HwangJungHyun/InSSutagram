@@ -1,11 +1,3 @@
-# config.json
-config/
-
 # Dependency directories
 node_modules/
 uploads/
-
-# dotenv environment variables file
-.env
-
-# 
